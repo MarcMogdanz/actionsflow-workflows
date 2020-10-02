@@ -1,0 +1,50 @@
+on:
+  rss:
+    url:
+      # HN posts with over 500 points
+      - https://hnrss.org/frontpage?points=300&count=10
+      # Show HN posts with over 100 points
+      - https://hnrss.org/show?points=50&count=10
+      # HN replies to my comments
+      - https://hnrss.org/replies?id=CallMeMarc
+      # Dev blog of an interesting upcoming german Minecraft server
+      - https://blog.playlegend.net/rss
+      # German blog about IT-Security
+      - https://tarnkappe.info/feed/
+      # German blog about Bitcoin and other related topics
+      - https://bitcoinblog.de/feed/
+      # Guides about Puppeteer and Playwright
+      - https://theheadless.dev/rss.xml
+    config:
+      filterOutputs:
+        title: 1
+        link: 1
+      format: |
+        // extract hostname from full url
+        item.hostname = new URL(item.link).hostname;
+        // remove "
+        item.title = item.title.split('"').join("");
+        return item;
+jobs:
+  notify:
+    name: Send notifications
+    runs-on: ubuntu-latest
+    steps:
+      # Used for debugging
+      - name: Print to console
+        env:
+          title: ${{ on.rss.outputs.title }}
+          link: ${{ on.rss.outputs.link }}
+          hostname: ${{ on.rss.outputs.hostname }}
+        run: |
+          echo title: $title
+          echo link: $link
+          echo hostname: $hostname
+      - name: Slack notification
+        uses: Ilshidur/action-slack@2.1.0
+        env:
+          title: ${{ on.rss.outputs.title }}
+          link: ${{ on.rss.outputs.link }}
+          hostname: ${{ on.rss.outputs.hostname }}
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_RSS_ARTICLES }}
+          SLACK_CUSTOM_PAYLOAD: '{ "text": "{{ title }}", "blocks": [ { "type": "header", "text": { "type": "plain_text", "text": ":zap: {{ title }} :zap:", "emoji": true } }, { "type": "section", "text": { "type": "mrkdwn", "text": "`{{ hostname }}` - <{{ link }}|Click here to open>" } }, { "type": "divider" } ] }'
