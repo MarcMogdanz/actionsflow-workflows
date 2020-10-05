@@ -1,0 +1,33 @@
+on:
+  rss:
+    url:
+      # myDealz
+      - "https://www.mydealz.de/rssx/keyword-alarm/hri7Um2qg3YsPVKhdcmks6GY3YIqnm7wSbZbAo6AYzc."
+    config:
+      filterOutputs:
+        title: 1
+        link: 1
+      format: |
+        // remove "
+        item.title = item.title.split('"').join("");
+        return item;
+jobs:
+  notify:
+    name: Send notifications
+    runs-on: ubuntu-latest
+    steps:
+      # Used for debugging
+      - name: Print to console
+        env:
+          title: ${{ on.rss.outputs.title }}
+          link: ${{ on.rss.outputs.link }}
+        run: |
+          echo title: $title
+          echo link: $link
+      - name: Slack notification
+        uses: Ilshidur/action-slack@2.1.0
+        env:
+          title: ${{ on.rss.outputs.title }}
+          link: ${{ on.rss.outputs.link }}
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_RSS_DEALS }}
+          SLACK_CUSTOM_PAYLOAD: '{ "text": "{{ title }}", "blocks": [ { "type": "header", "text": { "type": "plain_text", "text": ":zap: {{ title }} :zap:", "emoji": true } }, { "type": "section", "text": { "type": "mrkdwn", "text": "<{{ link }}|Click here to open>" } }, { "type": "divider" } ] }'
