@@ -1,0 +1,45 @@
+on:
+  rss:
+    url:
+      # GitLab
+      - https://status.gitlab.com/pages/5b36dc6502d06804c08349f7/rss
+      # GitHub
+      - https://www.githubstatus.com/history.rss
+      # Mailbox.org
+      - https://status.mailbox.org/rss
+    config:
+      filterOutputs:
+        title: 1
+        link: 1
+      format: |
+        // extract hostname from full url
+        item.hostname = new URL(item.link).hostname;
+        // remove "
+        item.title = item.title.split('"').join("");
+        return item;
+      # Mailbox.org feed is so long it will crash when run too long
+      # failing to create the cache and then run into a loop
+      limit: 50
+jobs:
+  notify:
+    name: Send notifications
+    runs-on: ubuntu-latest
+    steps:
+      # Used for debugging
+      - name: Print to console
+        env:
+          title: ${{ on.rss.outputs.title }}
+          link: ${{ on.rss.outputs.link }}
+          hostname: ${{ on.rss.outputs.hostname }}
+        run: |
+          echo title: $title
+          echo link: $link
+          echo hostname: $hostname
+      - name: Slack notification
+        uses: Ilshidur/action-slack@2.1.0
+        env:
+          title: ${{ on.rss.outputs.title }}
+          link: ${{ on.rss.outputs.link }}
+          hostname: ${{ on.rss.outputs.hostname }}
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_RSS_STATUS }}
+          SLACK_CUSTOM_PAYLOAD: '{ "text": "{{ title }}", "blocks": [ { "type": "header", "text": { "type": "plain_text", "text": ":zap: {{ title }} :zap:", "emoji": true } }, { "type": "section", "text": { "type": "mrkdwn", "text": "`{{ hostname }}` - <{{ link }}|Click here to open>" } }, { "type": "divider" } ] }'
