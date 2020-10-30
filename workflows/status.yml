@@ -7,6 +7,8 @@ on:
       - https://www.githubstatus.com/history.rss
       # Mailbox.org
       - https://status.mailbox.org/rss
+      # Reddit
+      - https://www.redditstatus.com/history.atom
     config:
       filterOutputs:
         title: 1
