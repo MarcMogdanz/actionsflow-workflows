@@ -15,6 +15,8 @@ on:
       - https://bitcoinblog.de/feed/
       # Guides about Puppeteer and Playwright
       - https://theheadless.dev/rss.xml
+      # Swift blog
+      - https://swift.org/atom.xml
     config:
       filterOutputs:
         title: 1
