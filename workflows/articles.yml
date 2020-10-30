@@ -43,4 +43,4 @@ jobs:
           link: ${{ on.rss.outputs.link }}
           hostname: ${{ on.rss.outputs.hostname }}
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_RSS_ARTICLES }}
-          SLACK_CUSTOM_PAYLOAD: '{ "text": "{{ title }}", "blocks": [ { "type": "header", "text": { "type": "plain_text", "text": ":zap: {{ title }} :zap:", "emoji": true } }, { "type": "section", "text": { "type": "mrkdwn", "text": "`{{ hostname }}` - <{{ link }}|Click here to open>" } }, { "type": "divider" } ] }'
+          SLACK_CUSTOM_PAYLOAD: '{ "text": "{{ title }}", "blocks": [ { "type": "header", "text": { "type": "plain_text", "text": ":mega: {{ title }}", "emoji": true } }, { "type": "section", "text": { "type": "mrkdwn", "text": "`{{ hostname }}` - <{{ link }}|Click here to open>" } }, { "type": "divider" } ] }'
