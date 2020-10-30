@@ -9,6 +9,8 @@ on:
       - https://status.mailbox.org/rss
       # Reddit
       - https://www.redditstatus.com/history.atom
+      # Cloudflare
+      - https://www.cloudflarestatus.com/history.atom
     config:
       filterOutputs:
         title: 1
