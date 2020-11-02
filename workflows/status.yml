@@ -11,6 +11,8 @@ on:
       - https://www.redditstatus.com/history.atom
       # Cloudflare
       - https://www.cloudflarestatus.com/history.atom
+      # Ledger
+      - https://status.ledger.com/history.rss
     config:
       filterOutputs:
         title: 1
