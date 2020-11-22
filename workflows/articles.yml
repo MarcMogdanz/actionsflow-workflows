@@ -11,6 +11,8 @@ on:
       - https://theheadless.dev/rss.xml
       # Swift blog
       - https://swift.org/atom.xml
+      # Ethereum blog
+      - https://blog.ethereum.org/feed.xml
     config:
       filterOutputs:
         title: 1
