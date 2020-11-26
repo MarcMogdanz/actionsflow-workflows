@@ -7,6 +7,8 @@ on:
       - https://blog.ethereum.org/feed.xml
       # Bitcoin.com blog
       - https://blog.bitcoin.com/feed/
+      # Bitcoin.com news
+      - https://news.bitcoin.com/feed/
     config:
       filterOutputs:
         title: 1
