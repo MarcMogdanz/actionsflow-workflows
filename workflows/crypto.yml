@@ -1,16 +1,10 @@
 on:
   rss:
     url:
-      # Dev blog of an interesting upcoming german Minecraft server
-      - https://blog.playlegend.net/rss
-      # German blog about IT-Security
-      - https://tarnkappe.info/feed/
-      # Guides about Puppeteer and Playwright
-      - https://theheadless.dev/rss.xml
-      # Swift blog
-      - https://swift.org/atom.xml
-      # Troy Hunt's blog
-      - https://feeds.feedburner.com/TroyHunt?format=xml
+      # German blog about Bitcoin and other related topics
+      - https://bitcoinblog.de/feed/
+      # Ethereum blog
+      - https://blog.ethereum.org/feed.xml
     config:
       filterOutputs:
         title: 1
@@ -42,5 +36,5 @@ jobs:
           title: ${{ on.rss.outputs.title }}
           link: ${{ on.rss.outputs.link }}
           hostname: ${{ on.rss.outputs.hostname }}
-          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_RSS_ARTICLES }}
-          SLACK_CUSTOM_PAYLOAD: '{ "text": "{{ title }}", "blocks": [ { "type": "header", "text": { "type": "plain_text", "text": ":mega: {{ title }}", "emoji": true } }, { "type": "section", "text": { "type": "mrkdwn", "text": "`{{ hostname }}` - <{{ link }}|Click here to open>" } }, { "type": "divider" } ] }'
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_RSS_CRYPTO }}
+          SLACK_CUSTOM_PAYLOAD: '{ "text": "{{ title }}", "blocks": [ { "type": "header", "text": { "type": "plain_text", "text": ":package: {{ title }}", "emoji": true } }, { "type": "section", "text": { "type": "mrkdwn", "text": "`{{ hostname }}` - <{{ link }}|Click here to open>" } }, { "type": "divider" } ] }'
