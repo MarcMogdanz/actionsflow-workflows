@@ -13,6 +13,8 @@ on:
       - https://swift.org/atom.xml
       # Ethereum blog
       - https://blog.ethereum.org/feed.xml
+      # Troy Hunt's blog
+      - https://feeds.feedburner.com/TroyHunt?format=xml
     config:
       filterOutputs:
         title: 1
