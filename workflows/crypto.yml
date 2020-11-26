@@ -5,6 +5,8 @@ on:
       - https://bitcoinblog.de/feed/
       # Ethereum blog
       - https://blog.ethereum.org/feed.xml
+      # Bitcoin.com blog
+      - https://blog.bitcoin.com/feed/
     config:
       filterOutputs:
         title: 1
