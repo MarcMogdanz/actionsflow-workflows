@@ -11,6 +11,8 @@ on:
       - https://swift.org/atom.xml
       # Troy Hunt's blog
       - https://feeds.feedburner.com/TroyHunt?format=xml
+      # Netflix tech blog
+      - https://medium.com/feed/@netflixtechblog
     config:
       filterOutputs:
         title: 1
