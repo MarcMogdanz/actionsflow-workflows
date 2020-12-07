@@ -26,7 +26,8 @@ on:
         // extract hostname from full url
         item.hostname = new URL(item.link).hostname;
         // remove "
-        item.title = item.title.split('"').join("");
+        // max length for slack is 151, use 140 to have space for an emoji
+        item.title = item.title.split('"').join("").substring(0, 140);
         return item;
 jobs:
   notify:

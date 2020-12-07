@@ -21,7 +21,8 @@ on:
         // extract hostname from full url
         item.hostname = new URL(item.link).hostname;
         // remove "
-        item.title = item.title.split('"').join("");
+        // max length for slack is 151, use 140 to have space for an emoji
+        item.title = item.title.split('"').join("").substring(0, 140);
         return item;
       # Mailbox.org feed is so long it will crash when run too long
       # failing to create the cache and then run into a loop
