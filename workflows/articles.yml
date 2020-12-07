@@ -13,6 +13,9 @@ on:
       - https://feeds.feedburner.com/TroyHunt?format=xml
       # Netflix tech blog
       - https://medium.com/feed/@netflixtechblog
+      # CSGO Blog
+      # TODO: maybe add dedicated channel for gaming related topics
+      - https://blog.counter-strike.net/index.php/feed/
     config:
       filterOutputs:
         title: 1
