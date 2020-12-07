@@ -16,6 +16,8 @@ on:
       # CSGO Blog
       # TODO: maybe add dedicated channel for gaming related topics
       - https://blog.counter-strike.net/index.php/feed/
+      # Official telegram channel (blog and other updates)
+      - https://rsshub.app/telegram/channel/telegram
     config:
       filterOutputs:
         title: 1
