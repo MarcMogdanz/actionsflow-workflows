@@ -18,6 +18,8 @@ on:
       - https://blog.counter-strike.net/index.php/feed/
       # Official telegram channel (blog and other updates)
       - https://rsshub.app/telegram/channel/telegram
+      # Pavel Durov's telegram channel
+      - https://rsshub.app/telegram/channel/durov
     config:
       filterOutputs:
         title: 1
