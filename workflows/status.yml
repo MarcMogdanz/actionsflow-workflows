@@ -13,6 +13,8 @@ on:
       - https://www.cloudflarestatus.com/history.atom
       # Ledger
       - https://status.ledger.com/history.rss
+      # Vercel
+      - https://www.vercel-status.com/history.atom
     config:
       filterOutputs:
         title: 1
