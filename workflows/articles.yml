@@ -20,6 +20,8 @@ on:
       - https://rsshub.app/telegram/channel/telegram
       # Pavel Durov's telegram channel
       - https://rsshub.app/telegram/channel/durov
+      # Fly.io blog
+      - https://fly.io/feed.xml
     config:
       filterOutputs:
         title: 1
