@@ -15,6 +15,8 @@ on:
       - https://status.ledger.com/history.rss
       # Vercel
       - https://www.vercel-status.com/history.atom
+      # lemon.markets
+      - https://lemonmarkets.statuspage.io/history.rss
     config:
       filterOutputs:
         title: 1
