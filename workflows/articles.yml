@@ -16,10 +16,12 @@ on:
       # CSGO Blog
       # TODO: maybe add dedicated channel for gaming related topics
       - https://blog.counter-strike.net/index.php/feed/
+      # !removed because rsshub.app is currently really flaky
+      # !9/10 the pipeline failed it was because of a 502 from rsshub
       # Official telegram channel (blog and other updates)
-      - https://rsshub.app/telegram/channel/telegram
+      # - https://rsshub.app/telegram/channel/telegram
       # Pavel Durov's telegram channel
-      - https://rsshub.app/telegram/channel/durov
+      # - https://rsshub.app/telegram/channel/durov
       # Fly.io blog
       - https://fly.io/feed.xml
     config:
