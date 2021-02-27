@@ -26,6 +26,8 @@ on:
       - https://fly.io/feed.xml
       # Spotify engineering blog
       - https://engineering.atspotify.com/feed
+      # Uber engineering blog
+      - https://eng.uber.com/feed
     config:
       filterOutputs:
         title: 1
