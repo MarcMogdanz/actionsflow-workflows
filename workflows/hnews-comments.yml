@@ -1,10 +1,8 @@
 on:
   rss:
     url:
-      # HN posts with over 500 points
-      - https://hnrss.org/frontpage?points=300&count=10
-      # Show HN posts with over 100 points
-      - https://hnrss.org/show?points=50&count=10
+      # HN replies to my comments
+      - https://hnrss.org/replies?id=CallMeMarc
     config:
       filterOutputs:
         title: 1
@@ -37,5 +35,5 @@ jobs:
           title: ${{ on.rss.outputs.title }}
           link: ${{ on.rss.outputs.link }}
           hostname: ${{ on.rss.outputs.hostname }}
-          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_RSS_HNEWS }}
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_RSS_HNEWS_COMMENTS }}
           SLACK_CUSTOM_PAYLOAD: '{ "text": "{{ title }}", "blocks": [ { "type": "header", "text": { "type": "plain_text", "text": ":fire: {{ title }}", "emoji": true } }, { "type": "section", "text": { "type": "mrkdwn", "text": "`{{ hostname }}` - <{{ link }}|Click here to open>" } }, { "type": "divider" } ] }'
