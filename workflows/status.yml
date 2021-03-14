@@ -17,6 +17,8 @@ on:
       - https://www.vercel-status.com/history.atom
       # lemon.markets
       - https://lemonmarkets.statuspage.io/history.rss
+      # sipgate
+      - https://status.sipgate.de/history.rss
     config:
       filterOutputs:
         title: 1
