@@ -1,0 +1,41 @@
+on:
+  rss:
+    url:
+      # HN posts with "no-code"
+      - https://hnrss.org/newest?link=comments&q=no-code
+      # Ask HN posts with "no-code"
+      - https://hnrss.org/ask?link=comments&q=no-code
+    config:
+      filterOutputs:
+        title: 1
+        link: 1
+      format: |
+        // extract hostname from full url
+        item.hostname = new URL(item.link).hostname;
+        // remove "
+        // max length for slack is 151, use 140 to have space for an emoji
+        item.title = item.title.split('"').join("").substring(0, 140);
+        return item;
+jobs:
+  notify:
+    name: Send notifications
+    runs-on: ubuntu-latest
+    steps:
+      # Used for debugging
+      - name: Print to console
+        env:
+          title: ${{ on.rss.outputs.title }}
+          link: ${{ on.rss.outputs.link }}
+          hostname: ${{ on.rss.outputs.hostname }}
+        run: |
+          echo title: $title
+          echo link: $link
+          echo hostname: $hostname
+      - name: Slack notification
+        uses: Ilshidur/action-slack@2.1.0
+        env:
+          title: ${{ on.rss.outputs.title }}
+          link: ${{ on.rss.outputs.link }}
+          hostname: ${{ on.rss.outputs.hostname }}
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_RSS_HNEWS_CUSTOM }}
+          SLACK_CUSTOM_PAYLOAD: '{ "text": "{{ title }}", "blocks": [ { "type": "header", "text": { "type": "plain_text", "text": ":fire: {{ title }}", "emoji": true } }, { "type": "section", "text": { "type": "mrkdwn", "text": "`{{ hostname }}` - <{{ link }}|Click here to open>" } }, { "type": "divider" } ] }'
