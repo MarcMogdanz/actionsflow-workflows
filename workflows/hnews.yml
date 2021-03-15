@@ -1,10 +1,12 @@
 on:
   rss:
     url:
-      # HN posts with over 500 points
-      - https://hnrss.org/frontpage?link=comments&points=300&count=10
-      # Show HN posts with over 100 points
-      - https://hnrss.org/show?link=comments&points=50&count=10
+      # HN posts with over 300 points
+      - https://hnrss.org/frontpage?link=comments&points=300
+      # Show HN posts with over 50 points
+      - https://hnrss.org/show?link=comments&points=50
+      # Ask HN posts with over 50 points
+      - https://hnrss.org/ask?link=comments&points=50
     config:
       filterOutputs:
         title: 1
