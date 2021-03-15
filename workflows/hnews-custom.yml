@@ -2,9 +2,11 @@ on:
   rss:
     url:
       # HN posts with "no-code"
-      - https://hnrss.org/newest?link=comments&q=no-code
+      - https://hnrss.org/newest?link=comments&q=no-code&count=100
       # Ask HN posts with "no-code"
-      - https://hnrss.org/ask?link=comments&q=no-code
+      - https://hnrss.org/ask?link=comments&q=no-code&count=100
+      # HN posts with "side project"
+      - https://hnrss.org/newest?link=comments&q=side+project&count=100
     config:
       filterOutputs:
         title: 1
