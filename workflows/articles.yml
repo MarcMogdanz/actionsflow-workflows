@@ -30,6 +30,8 @@ on:
       - https://eng.uber.com/feed
       # Interviews from usesthis.com
       - https://usesthis.com/feed.atom
+      # Developer q&a interviews
+      - https://console.dev/qa/rss.xml
     config:
       filterOutputs:
         title: 1
