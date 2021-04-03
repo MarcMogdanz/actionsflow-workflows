@@ -28,6 +28,8 @@ on:
       - https://engineering.atspotify.com/feed
       # Uber engineering blog
       - https://eng.uber.com/feed
+      # Interviews from usesthis.com
+      - https://usesthis.com/feed.atom
     config:
       filterOutputs:
         title: 1
