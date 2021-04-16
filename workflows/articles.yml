@@ -32,6 +32,8 @@ on:
       - https://usesthis.com/feed.atom
       # Developer q&a interviews
       - https://console.dev/qa/rss.xml
+      # Zerforschung
+      - https://zerforschung.org/index.xml
     config:
       filterOutputs:
         title: 1
