@@ -1,8 +1,9 @@
 on:
   rss:
     url:
+      # ! throwing 521s as of 2021-04-25
       # Dev blog of an interesting upcoming german Minecraft server
-      - https://blog.playlegend.net/rss
+      # - https://blog.playlegend.net/rss
       # German blog about IT-Security
       - https://tarnkappe.info/feed/
       # Guides about Puppeteer and Playwright
