@@ -39,6 +39,8 @@ on:
       - https://www.dkriesel.com/feed.php?linkto=current&content=html&mode=blogtng&blog=blog-de
       # David Kriesel (EN)
       - https://www.dkriesel.com/feed.php?linkto=current&content=html&mode=blogtng&blog=blog-en
+      # JetBrains' blog
+      - https://blog.jetbrains.com/feed/
     config:
       filterOutputs:
         title: 1
