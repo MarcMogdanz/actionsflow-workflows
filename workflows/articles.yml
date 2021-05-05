@@ -32,7 +32,7 @@ on:
       # Interviews from usesthis.com
       - https://usesthis.com/feed.atom
       # Developer q&a interviews
-      - https://console.dev/qa/rss.xml
+      - https://console.dev/interviews/rss.xml
       # Zerforschung
       - https://zerforschung.org/index.xml
       # David Kriesel (DE)
